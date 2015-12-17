@@ -1,5 +1,8 @@
 <?php
 
-echo("Hello World! Welcome to AntiSocial");
+    // include the config file
+    require("../includes/config.php");
+    
+    render("construction.php", []);
 
 ?>

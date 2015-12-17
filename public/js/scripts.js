@@ -1,0 +1,6 @@
+/*
+ *
+ *antisocial
+ *global js
+ *
+ */
