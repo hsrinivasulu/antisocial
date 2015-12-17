@@ -10,11 +10,11 @@
             <h2>Create an account</h2>
             <form role="form" class="row">
                 <div class ="col-md-10">
-                    <div class="row">
-                        <div class="form-group col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-6">
                           <input class="form-control" type="text" placeholder="First Name" name="firstname"/>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="col-md-6">
                             <input class="form-control" type="text" placeholder="Last Name" name="lastname"/>
                         </div>
                     </div>
@@ -30,7 +30,7 @@
                         <label class="radio-inline"><input type="radio" name="optradio" value="n">Non Binary</label>
                         <label class="radio-inline"><input type="radio" name="optradio" value="d">Do not wish to state</label>
                     </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
                 <div class ="col-md-2">
                 </div>
