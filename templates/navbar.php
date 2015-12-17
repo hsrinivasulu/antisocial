@@ -8,21 +8,21 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><?= WEBNAME ?></a>
+      <a class="navbar-brand" href="index.php"><?= WEBNAME ?></a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
     
       <?php if (isset($_SESSION["id"])) {?>
       <div>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="stream.php">stream</a></li>
-            <li><a href="profile.php">profile</a></li>
-            <li><a href="notifications.php">notifications</a></li> 
-            <li><a href="logout.php">log out</a></li> 
+            <li <?= activate("stream") ?>><a href="stream.php">stream</a></li>
+            <li <?= activate("profile") ?>><a href="profile.php">profile</a></li>
+            <li <?= activate("notifications") ?>><a href="notifications.php">notifications</a></li> 
+            <li <?= activate("logout") ?>><a href="logout.php">log out</a></li> 
           </ul>
       </div>
       <?php }
-      else  {?>
+      else if ($_SERVER["PHP_SELF"] != "/login.php" && $_SERVER["PHP_SELF"] != "/register.php") {?>
       <form class="navbar-form navbar-right" action="login.php" method="post">
         <div class="form-group">
           <input type="text" placeholder="Email" name="email" class="form-control">

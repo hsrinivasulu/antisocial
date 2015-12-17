@@ -165,6 +165,14 @@
         return htmlspecialchars(stripslashes(trim($input)));
     }
     
+    function activate($name)
+    {
+        if($_SERVER["PHP_SELF"] == "/" . $name . ".php")
+            return "class = \"active\"";
+        else
+            return "";
+    }
+    
     /*
     function email($id, $subject, $message)
     {
@@ -191,5 +199,6 @@
         return($mailer->Send());
     }
     */
+    
 
 ?>

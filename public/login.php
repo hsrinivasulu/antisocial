@@ -30,7 +30,7 @@
         
         if(!(crypt($password, $hash) == $hash))
         {
-            render("login_form.php", ["title" => "Log In", "err_str" => "Email address does not match that of any preexisting account."]);
+            render("login_form.php", ["title" => "Log In", "err_str" => "Incorrect Email ID/Password combination."]);
             exit;
         }
         
