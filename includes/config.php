@@ -1,7 +1,7 @@
 <?php
 
     /**
-     * code 'borrowede' from CS50
+     * code 'borrowed' from CS50
      */
 
     // display errors, warnings, and notices

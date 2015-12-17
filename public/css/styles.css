@@ -3,21 +3,27 @@
  *global css
  */
 
+/*
 .container
+{
+    
+}
+*/
+
+/*
+#middle .form-control
+{
+    display: inline-block;
+    width: 100%;
+}
+*/
+
+
+#bottom
 {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-}
-
-#middle .form-control
-{
-    display: inline-block;
-    width: auto;
-}
-
-#bottom
-{
     font-size: smaller;
     margin: 20px;
 }

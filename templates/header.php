@@ -3,7 +3,8 @@
 <html>
 
     <head>
-
+    
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
         <link href="css/styles.css" rel="stylesheet" type="text/css">
         
@@ -20,14 +21,5 @@
     </head>
     
     <body>
-    
-        <div class="container">
             
-            <div id="top">
-            
-                <h1><?= WEBNAME ?></h1>
-                <!-- TODO: Put in navbar -->
-            
-            </div>
-            
-            <div id = "middle">
+        <div id="top">

@@ -140,6 +140,9 @@
 
             // render header
             require("../templates/header.php");
+            
+            // render navbar
+            require("../templates/navbar.php");
 
             // render template
             require("../templates/$template");
