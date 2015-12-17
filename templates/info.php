@@ -24,6 +24,12 @@
                     <div class="form-group">
                       <input class="form-control" type="password" placeholder="Password" name="password"/>
                     </div>
+                    <div class="form-group">
+                        <label class="radio-inline"><input type="radio" name="optradio" value="m" checked>Male</label>
+                        <label class="radio-inline"><input type="radio" name="optradio" value="f">Female</label>
+                        <label class="radio-inline"><input type="radio" name="optradio" value="n">Non Binary</label>
+                        <label class="radio-inline"><input type="radio" name="optradio" value="d">Do not wish to state</label>
+                    </div>
                     <button type="submit" class="btn btn-default">Submit</button>
                 </div>
                 <div class ="col-md-2">
