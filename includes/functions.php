@@ -173,6 +173,12 @@
             return "";
     }
     
+    function errorBS($filename, $title, $err_str)
+    {
+        render($filename, ["title" => $title, "err_str" => $err_str]);
+        exit;
+    }
+    
     /*
     function email($id, $subject, $message)
     {

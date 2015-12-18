@@ -5,7 +5,7 @@
      */
 
     // your database's name
-    define("DATABASE", "pset7");
+    define("DATABASE", "antisocial");
 
     // your database's password
     define("PASSWORD", "crimson");

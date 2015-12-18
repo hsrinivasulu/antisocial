@@ -3,6 +3,6 @@
     // include the config file
     require("../includes/config.php");
     
-    render("stream_view.php", ["title" => "stream"]);
+    render("stream_view.php", ["title" => "stream", "id" => $_SESSION["id"]]);
 
 ?>
