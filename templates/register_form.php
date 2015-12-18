@@ -7,24 +7,15 @@
 ?>
 <div class="container" style="padding-top: 60px;">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
         </div>
-        <div class="col-md-4 well well-lg">
+        <div class="col-md-6 well well-lg">
             <h2>Sign up</h2><br/>
-            <form action="register.php" method="post">
-                <div class="form-group">
-                    <input class ="form-control" type="text" name="email" placeholder="Email"/>
-                </div> 
-                <div class="form-group">
-                    <input class ="form-control" type="password" name="password" placeholder="Password"/>
-                </div>
-                <div class="form-group">
-                    <input class = "btn btn-primary" type="submit" value="Log in"/>
-                </div>
-            </form><br/>
+            <?php require("../templates/reg_form_def.php"); ?>
+            <br/>
             <a href="login.php">Sign in if you already have an account</a><br/><br/>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
         </div>
     </div>
 </div>

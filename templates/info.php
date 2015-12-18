@@ -8,33 +8,7 @@
     <div class= "row">
         <div class= "col-md-6">
             <h2>Create an account</h2>
-            <form role="form" class="row" action="register.php" method="post">
-                <div class ="col-md-10">
-                    <div class="form-group row">
-                        <div class="col-md-6">
-                          <input class="form-control" type="text" placeholder="First Name" name="firstname"/>
-                        </div>
-                        <div class="col-md-6">
-                            <input class="form-control" type="text" placeholder="Last Name" name="lastname"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" type="email" placeholder="Email Address" name="email"/>
-                    </div>
-                    <div class="form-group">
-                      <input class="form-control" type="password" placeholder="Password" name="password"/>
-                    </div>
-                    <div class="form-group">
-                        <label class="radio-inline"><input type="radio" name="gender" value="m" checked>Male</label>
-                        <label class="radio-inline"><input type="radio" name="gender" value="f">Female</label>
-                        <label class="radio-inline"><input type="radio" name="gender" value="n">Non Binary</label>
-                        <label class="radio-inline"><input type="radio" name="gender" value="d">Do not wish to state</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-                <div class ="col-md-2">
-                </div>
-            </form>
+            <?php require("../templates/reg_form_def.php"); ?>
         </div>
         <div class= "col-md-6">
             <h2>What's all this about?</h2>
