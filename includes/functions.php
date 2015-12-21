@@ -179,6 +179,138 @@
         exit;
     }
     
+    // get functions
+    
+    function getUser($id = NULL)
+    {
+        if($id == NULL)
+            $id = $_SESSION["id"];
+        
+        $data = array_filter(query("SELECT * FROM `users` where id = ?", $id));
+        if (empty($data))
+            return false;
+        else 
+            return $data[0];
+    }
+    
+    function getFriendList($id = NULL)
+    {
+        if($id == NULL)
+            $id = $_SESSION["id"];
+        
+        $data = array_filter(query("SELECT * FROM `friends` where id_sent = ? OR id_received = ?", $id, $id));
+        if (empty($data))
+            return false;
+        else
+        {
+            $numbers = [];
+            $counter = 0;
+            
+            foreach($data as $row)
+            {
+                if ($id = $row["id_sent"])
+                    $numbers[$counter] = $row["id_received"];
+                else
+                    $numbers[$counter] = $row["id_sent"];
+            }
+            
+            return $numbers;
+        }
+    }
+    
+    function getStream($id = NULL)
+    {
+        if($id == NULL)
+            $id = $_SESSION["id"];
+        
+        $data = array_filter(query("SELECT * FROM `posts"));
+        
+        if (empty($data))
+            return false;
+        else
+        {
+            $posts = [];
+            $counter = 0;
+            // $friends = getFriendList($id);
+            
+            foreach($data as $row)
+            {
+                if ($row["public"] == TRUE || /* in_array($row["poster_id"], $friends) || */ $row["poster_id"] = $id)
+                {
+                   $posts[$counter] = $row;
+                   $counter++; 
+                }
+            }
+            return $posts;
+        }
+    }
+    
+    function getPosts($id = NULL)
+    {
+        if($id == NULL)
+            $id = $_SESSION["id"];
+            
+        // checking if it's for the user or for a friend
+        
+        if ($id = $_SESSION["id"] || isFriend($id, $_SESSION["id"])) 
+            $data = array_filter(query("SELECT * FROM `posts` WHERE `poster_id` = ?", $id));
+        else
+            $data = array_filter(query("SELECT * FROM `posts` WHERE `poster_id` = ? AND `PUBLIC` = FALSE", $id)); 
+        
+        if (empty($data))
+            return false;
+        else
+            return $data;
+    }
+    
+    function isFriend($user_id, $current_id = NULL)
+    {
+        if($current_id == NULL)
+            $current_id = $_SESSION["id"];
+            
+        $friend_list = getFriendList($current_id);
+        
+        if($friendlist === FALSE)
+            return false;
+        else
+        {
+            if(in_array($user_id, $friend_list))
+                return true;
+            else
+                return false;
+                
+        }
+    }
+    
+    function getReqs($id = NULL)
+    {
+        if($id == NULL)
+            $id = $_SESSION["id"];
+        
+        $reqs = array_filter(query("SLECT * FROM `friend_reqs` WHERE `receiver_id` = ?", $id));
+        
+        if(empty($reqs))
+            return false;
+        else
+            return $reqs;
+    }
+    
+    function getName($id = NULL)
+    {
+        if($id == NULL)
+            $id = $_SESSION["id"];
+        
+        $user = getUser($id);
+        
+        if ($id !== false)
+        {
+            $name = $user["first_name"] . " " . $user["last_name"]; 
+            return $name;
+        }
+        else
+            return false;
+    }
+    
     /*
     function email($id, $subject, $message)
     {

@@ -14,6 +14,10 @@
       <input class="form-control" type="password" placeholder="Password" name="password"/>
     </div>
     <div class="form-group">
+        
+    </div>
+    <div class="form-group">
+        Gender: 
         <label class="radio-inline"><input type="radio" name="gender" value="m" checked>Male</label>
         <label class="radio-inline"><input type="radio" name="gender" value="f">Female</label>
         <label class="radio-inline"><input type="radio" name="gender" value="n">Non Binary</label>

@@ -38,9 +38,6 @@
         
         $user = $rows[0];
         $_SESSION["id"] = $user["id"];
-        $_SESSION["fname"] = $user["fname"];
-        $_SESSION["lname"] = $user["lname"];
-        $_SESSION["email"] = $user["email"];
         
         redirect("stream.php");
     }
