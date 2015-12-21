@@ -257,10 +257,10 @@
             
         // checking if it's for the user or for a friend
         
-        if ($id = $_SESSION["id"] || isFriend($id, $_SESSION["id"])) 
+        if ($id == $_SESSION["id"] || isFriend($id, $_SESSION["id"]))
             $data = array_filter(query("SELECT * FROM `posts` WHERE `poster_id` = ?", $id));
         else
-            $data = array_filter(query("SELECT * FROM `posts` WHERE `poster_id` = ? AND `PUBLIC` = FALSE", $id)); 
+            $data = array_filter(query("SELECT * FROM `posts` WHERE `poster_id` = ? AND `PUBLIC` = TRUE", $id)); 
         
         if (empty($data))
             return false;
@@ -314,6 +314,24 @@
         }
         else
             return false;
+    }
+    
+    function gender_str($char)
+    {
+        switch($char)
+        {
+            case 'm':
+                return "Male";
+                break;
+            case 'f':
+                return "Female";
+                break;
+            case 'n':
+                return "Non Binary";
+                break;
+            default:
+                return "";
+        }
     }
     
     /*

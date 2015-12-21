@@ -15,10 +15,12 @@
                 {
                     $poster_id = $post["poster_id"];
                     $text = $post["text"];
+                    $timestamp = $post["timestamp"];
         ?>
         <!-- Put the post html here -->
         <div class="well" style="margin-bottom: 20px;">
-            <a href="profile.php?id=<?= $poster_id ?>"><?= getName($poster_id); ?></a><br/>
+            <a href="profile.php?id=<?= $poster_id ?>"><?= getName($poster_id); ?></a> <span style="color: grey;"><small><?= $timestamp ?></small></span>
+            <br/>
             <?= $text?>
         </div>
         <?php
