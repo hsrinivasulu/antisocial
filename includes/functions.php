@@ -198,24 +198,30 @@
         if($id == NULL)
             $id = $_SESSION["id"];
         
-        $data = array_filter(query("SELECT * FROM `friends` where id_sent = ? OR id_received = ?", $id, $id));
-        if (empty($data))
+        // TODO: Implement getFriendList in a better manner
+        $data = array_filter(query("SELECT * FROM `friends`"));
+        
+        $numbers = [];
+        $counter = 0;
+        
+        foreach($data as $row)
+        {
+            if ($id == $row["id_sent"])
+            {
+                $numbers[$counter] = $row["id_received"];
+                $counter++;
+            }
+            else if ($id == $row["id_received"])
+            {
+                $numbers[$counter] = $row["id_sent"];
+                $counter++;
+            }
+        }
+        
+        if(empty($numbers))
             return false;
         else
-        {
-            $numbers = [];
-            $counter = 0;
-            
-            foreach($data as $row)
-            {
-                if ($id = $row["id_sent"])
-                    $numbers[$counter] = $row["id_received"];
-                else
-                    $numbers[$counter] = $row["id_sent"];
-            }
-            
             return $numbers;
-        }
     }
     
     function getStream($id = NULL)
@@ -231,11 +237,10 @@
         {
             $posts = [];
             $counter = 0;
-            // $friends = getFriendList($id);
-            
+    
             foreach($data as $row)
             {
-                if ($row["public"] == TRUE || /* in_array($row["poster_id"], $friends) || */ $row["poster_id"] = $id)
+                if ($row["public"] == TRUE || isFriend($row["poster_id"], $id) || $row["poster_id"] == $id)
                 {
                    $posts[$counter] = $row;
                    $counter++; 
@@ -270,7 +275,7 @@
             
         $friend_list = getFriendList($current_id);
         
-        if($friendlist === FALSE)
+        if($friend_list == FALSE)
             return false;
         else
         {
