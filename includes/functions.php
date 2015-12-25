@@ -246,7 +246,7 @@
                    $counter++; 
                 }
             }
-            return $posts;
+            return array_reverse($posts);
         }
     }
     
@@ -265,7 +265,7 @@
         if (empty($data))
             return false;
         else
-            return $data;
+            return array_reverse($data);
     }
     
     function isFriend($user_id, $current_id = NULL)

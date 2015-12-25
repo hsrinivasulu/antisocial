@@ -36,7 +36,7 @@
                   <label><input type="checkbox" name="public" value="true">Public?</label>
                 </div>
                 <div class="form-group">
-                    <input class = "btn btn-primary btn-block" type="submit" value="Post"/>
+                    <button type="submit" class="btn btn-primary btn-block">Post  <span class="glyphicon glyphicon-pencil"></span></button>
                 </div>
             </form>
         </div>

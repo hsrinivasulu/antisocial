@@ -5,8 +5,8 @@
             <div class="well well-lg">
                 <center>
                     <h2><?= getName($id)?>.</h2><br/>
-                    <?= gender_str($user["gender"]) ?><br/>
-                    <?= $user["email"] ?><br/><br/>  
+                    <span class="glyphicon glyphicon-user"></span> <?= gender_str($user["gender"]) ?><br/>
+                    <span class="glyphicon glyphicon-envelope"></span> <?= $user["email"] ?><br/><br/>  
                 </center>
             </div>
             

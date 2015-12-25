@@ -19,7 +19,7 @@
                     <input class ="form-control" type="password" name="password" placeholder="Password"/>
                 </div>
                 <div class="form-group">
-                    <input class = "btn btn-primary" type="submit" value="Log in"/>
+                    <button type="submit" class="btn btn-primary">Sign in <span class="glyphicon glyphicon-log-in"></span></button>
                 </div>
             </form><br/>
             <a href="#">Forgot your password?</a><br/>

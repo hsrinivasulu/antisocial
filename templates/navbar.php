@@ -15,10 +15,10 @@
       <?php if (isset($_SESSION["id"])) {?>
       <div>
           <ul class="nav navbar-nav navbar-right">
-            <li <?= activate("stream") ?>><a href="stream.php">stream</a></li>
-            <li <?= activate("profile") ?>><a href="profile.php">profile</a></li>
-            <li <?= activate("notifications") ?>><a href="notifications.php">notifications</a></li> 
-            <li <?= activate("logout") ?>><a href="logout.php">log out</a></li> 
+            <li <?= activate("stream") ?>><a href="stream.php">stream <span class="glyphicon glyphicon-circle-arrow-down"></a></li>
+            <li <?= activate("profile") ?>><a href="profile.php">profile <span class="glyphicon glyphicon-user"></span></a></li>
+            <li <?= activate("notifications") ?>><a href="notifications.php">notifications <span class="glyphicon glyphicon-globe"></a></li> 
+            <li <?= activate("logout") ?>><a href="logout.php">log out <span class="glyphicon glyphicon-log-out"></a></li> 
           </ul>
       </div>
       <?php }
@@ -30,7 +30,7 @@
         <div class="form-group">
           <input type="password" placeholder="Password" name="password" class="form-control">
         </div>
-        <button type="submit" class="btn btn-primary">Sign in</button>
+        <button type="submit" class="btn btn-primary">Sign in <span class="glyphicon glyphicon-log-in"></span></button>
       </form>
       <?php }?>
     </div><!--/.navbar-collapse -->

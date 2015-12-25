@@ -24,6 +24,6 @@
         <label class="radio-inline"><input type="radio" name="gender" value="d">Do not wish to state</label>
     </div>
     <div class="form-group">
-        <input class = "btn btn-primary" type="submit" value="Register"/>
+        <button type="submit" class="btn btn-primary">Register <span class="glyphicon glyphicon-check"></span></button>
     </div>
 </form>
