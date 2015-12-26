@@ -5,6 +5,27 @@
             <div class="well well-lg">
                 <center>
                     <h2><?= getName($id)?>.</h2><br/>
+                    <?php
+                        switch (checkReqStatus($id))
+                        {
+                            case 0:
+                                echo("<form action=\"profile.php\" method=\"post\"><button type=\"submit\" name=\"id\" value=\"". $id ."\" class=\"btn btn-danger\">Unfriend <span class=\"glyphicon glyphicon-minus\"></button><br/></form>");
+                                break;
+                            
+                            case 1:
+                                echo("<a href=\"notifications.php\" class=\"btn btn-info\" role=\"button\">Respond to Request <span class=\"glyphicon glyphicon-plus\"></span></a><br/>");
+                                break;
+                                
+                            case 2:
+                                echo("<button type=\"button\" class=\"btn btn-success disabled\">Request Sent <span class=\"glyphicon glyphicon-plus\"></button><br/>");
+                                break;
+                                
+                            case 3:
+                                echo("<form action=\"profile.php\" method=\"post\"><button type=\"submit\" name=\"id\" value=\"". $id ."\" class=\"btn btn-success\">Add Friend <span class=\"glyphicon glyphicon-plus\"></button><br/></form>");
+                                break;
+                        }
+                    ?>
+                <br/>
                     <span class="glyphicon glyphicon-user"></span> <?= gender_str($user["gender"]) ?><br/>
                     <span class="glyphicon glyphicon-envelope"></span> <?= $user["email"] ?><br/><br/>  
                 </center>
@@ -19,6 +40,7 @@
             
             <div class="well well-lg">
                 <h2>Friends.</h2><br/>
+                
                 <ol style="list-style: none;">
                 
                 <?php

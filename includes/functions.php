@@ -206,14 +206,14 @@
         
         foreach($data as $row)
         {
-            if ($id == $row["id_sent"])
+            if ($id == $row["sender_id"])
             {
-                $numbers[$counter] = $row["id_received"];
+                $numbers[$counter] = $row["receiver_id"];
                 $counter++;
             }
-            else if ($id == $row["id_received"])
+            else if ($id == $row["receiver_id"])
             {
-                $numbers[$counter] = $row["id_sent"];
+                $numbers[$counter] = $row["sender_id"];
                 $counter++;
             }
         }
@@ -292,12 +292,23 @@
         if($id == NULL)
             $id = $_SESSION["id"];
         
-        $reqs = array_filter(query("SLECT * FROM `friend_reqs` WHERE `receiver_id` = ?", $id));
+        $data = array_filter(query("SELECT * FROM `friend_reqs` WHERE `receiver_id` = ?", $id));
         
-        if(empty($reqs))
+        if(empty($data))
             return false;
         else
+        {
+            $reqs = [];
+            $counter = 0;
+            
+            foreach($data as $row)
+            {
+                $reqs[$counter] = $row["sender_id"];
+                $counter++;
+            }
+            
             return $reqs;
+        }
     }
     
     function getName($id = NULL)
@@ -314,6 +325,37 @@
         }
         else
             return false;
+    }
+    
+    function checkReqStatus($user_id, $current_id = NULL)
+    {
+        if($current_id == NULL)
+            $current_id = $_SESSION["id"];
+            
+        // case -1, you're trying to send a request to yourself
+        if($user_id == $current_id)
+            return -1;
+            
+        // case 0, guys are already friends
+        if (isFriend($user_id, $current_id))
+            return 0;
+        
+        // case 1, current user has already received a req from user (current user refers to guy logged in)
+        $cur_user_reqs = getReqs($current_id);
+        
+        if ($cur_user_reqs !== FALSE && in_array($user_id, $cur_user_reqs))
+            return 1;
+            
+        // case 2, current user has already sent the user a request (and that jackass hasn't replied)
+        $user_reqs = getReqs($user_id);
+        
+        if ($user_reqs !== FALSE && in_array($current_id, $user_reqs))
+            return 2;
+            
+        // case 3, you're free to send the bastard a request
+            return 3;
+        
+        
     }
     
     function gender_str($char)
