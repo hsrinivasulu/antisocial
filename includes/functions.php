@@ -385,16 +385,18 @@
     
     function gender_str($char)
     {
+        $glyph = "<span class=\"glyphicon glyphicon-user\"></span> ";
+        
         switch($char)
         {
             case 'm':
-                return "Male";
+                return $glyph . " Male" . "<br/>";
                 break;
             case 'f':
-                return "Female";
+                return $glyph . " Female" . "<br/>";
                 break;
             case 'n':
-                return "Non Binary";
+                return $glyph . " Non Binary" . "<br/>";
                 break;
             default:
                 return "";
