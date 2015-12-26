@@ -224,6 +224,31 @@
             return $numbers;
     }
     
+    function getFriendID($user_id, $current_id = NULL)
+    {
+        if($current_id == NULL)
+            $current_id = $_SESSION["id"];
+            
+        $records = query("SELECT * FROM `friends` WHERE `sender_id` = ?", $user_id);
+        
+        foreach($records as $record)
+        {
+            if ($record["receiver_id"] == $current_id)
+                return $record["id"];
+        }
+        
+        $records = query("SELECT * FROM `users` WHERE `receiver_id` = ?", $user_id);
+        
+        foreach($records as $record)
+        {
+            if ($record["sender_id"] == $current_id)
+                return $record["id"];
+        }
+        
+        return false;
+            
+    }
+    
     function getStream($id = NULL)
     {
         if($id == NULL)

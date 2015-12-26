@@ -37,11 +37,12 @@
         $request_id = $records[0]["id"];
         
         // Delete first, then check whether the action was an accept
-        query("DELETE FROM `friend_reqs` WHERE `request_id` = ?", $request_id);
+        query("DELETE FROM `friend_reqs` WHERE `id` = ?", $request_id);
         
-        if ($action = "accept")
+        
+        if ($action == "accept")
         {
-            query("INSERT INTO `friends` (`sender_id`, `receiver_id`, `freq_id`) VALUES (?, ?, ?)", $sender_id, $receiver_id, $request_id);
+            query("INSERT INTO `friends` (`sender_id`, `receiver_id`) VALUES (?, ?)", $sender_id, $receiver_id);
             redirect("notifications.php");
         }
         else

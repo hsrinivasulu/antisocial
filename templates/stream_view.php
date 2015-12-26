@@ -6,6 +6,21 @@
     }
 ?>
 <div class="container" style="padding-top: 60px; padding-bottom: 40px;">
+    <div class="col-md-5">
+        <div class = "well well-lg" >
+            <form role="form" action="stream.php" method="POST">
+                <div class="form-group">
+                    <textarea class="form-control" placeholder="What's on your mind?" name="text" rows=5></textarea>
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox" name="public" value="true">Public?</label>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">Post  <span class="glyphicon glyphicon-pencil"></span></button>
+                </div>
+            </form>
+        </div>
+    </div>
     <div class="col-md-7">
         <?php
             if(empty($posts))
@@ -25,21 +40,6 @@
         </div>
         <?php
                 }?>       
-    </div>
-    <div class="col-md-5">
-        <div class = "well well-lg">
-            <form role="form" action="stream.php" method="POST">
-                <div class="form-group">
-                    <textarea class="form-control" placeholder="What's on your mind?" name="text" rows=5></textarea>
-                </div>
-                <div class="checkbox">
-                  <label><input type="checkbox" name="public" value="true">Public?</label>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block">Post  <span class="glyphicon glyphicon-pencil"></span></button>
-                </div>
-            </form>
-        </div>
     </div>
 </div>
 

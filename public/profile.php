@@ -38,8 +38,12 @@
         
         switch(checkReqStatus($id))
         {
+            case 0:
+                $friend_id = getFriendID($id);
+                query("DELETE FROM `friends` WHERE `id` = ?", $friend_id);
+                break;
+            
             case 3:
-                // TODO: Put in dat request
                 query("INSERT INTO `friend_reqs` (`sender_id`, `receiver_id`) VALUES (?, ?)", $_SESSION["id"], $id);
                 break;
         }
